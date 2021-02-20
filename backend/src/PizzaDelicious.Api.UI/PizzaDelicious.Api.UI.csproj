@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventSourcing\EventSourcing.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Catalog.Application\PizzaDelicious.Catalog.Application.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Catalog.Data\PizzaDelicious.Catalog.Data.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Payments.AntiCorruption\PizzaDelicious.Payments.AntiCorruption.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Payments.Business\PizzaDelicious.Payments.Business.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Payments.Data\PizzaDelicious.Payments.Data.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Register.Application\PizzaDelicious.Register.Application.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Register.Data\PizzaDelicious.Register.Data.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Sale.Application\PizzaDelicious.Sale.Application.csproj" />
+    <ProjectReference Include="..\PizzaDelicious.Sale.Data\PizzaDelicious.Sale.Data.csproj" />
+  </ItemGroup>
+
+
+</Project>
