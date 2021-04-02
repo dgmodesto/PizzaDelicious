@@ -72,6 +72,15 @@ namespace PizzaDelicious.Api.UI
                 );
             });
 
+            services.AddCors(options=>
+            {
+                options.AddPolicy("Development",
+                    builder => builder.AllowAnyOrigin()
+                                       .AllowAnyMethod()
+                                       .AllowAnyHeader()
+                                       .AllowCredentials()
+                    );
+            });
 
             services.AddMediatR(typeof(Startup));
             services.RegisterServices();
