@@ -10,7 +10,7 @@ Implementado por: <b>Douglas Gomes Modesto<b>
 ## Objetivo 
   - é criar um Portal para que os clientes possam realizar seus pedidos e visualizar os produtos da Pizzaria 
 
-  - Backoffice para que a Gerência da Pizzaria possa gerenciar seu estoque e promover possíveis promoções para seus clientes.
+  - Criar um sistema de backoffice para que a Gerência da Pizzaria possa gerenciar seu estoque e promover possíveis promoções para seus clientes.
 
 
 ## Tecnologias Utilizadas
