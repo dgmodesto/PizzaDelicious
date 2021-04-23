@@ -1,0 +1,26 @@
+notifiers:
+  - name: pizza-delicious-notification
+    type: teams
+    uid: pizza-delicious-alerts-grafana
+    org_name: Main Org.
+    is_default: true
+    send_reminder: true
+    frequency: 15h
+    disable_resolve_message: false
+    # See `Supported Settings` section for settings supported for each
+    # alert notification type.
+    settings:
+      recipient: "XXX"
+      uploadImage: true
+      token: "xoxb" # legacy setting since Grafana v7.2 (stored non-encrypted)
+      url: https://outlook.office.com/webhook/bb65da3c-80e7-454a-9704-1339af3389ed@1c8d208a-6dca-4db9-aaa9-b30231d98a72/IncomingWebhook/3471670da99146af9ad036464a444f62/e0604b7c-dff2-4657-be4f-d7d4ce626609
+
+    # Secure settings that will be encrypted in the database (supported since Grafana v7.2). See `Supported Settings` section for secure settings supported for each notifier.
+    secure_settings:
+      token: "xoxb"
+      url: https://outlook.office.com/webhook/bb65da3c-80e7-454a-9704-1339af3389ed@1c8d208a-6dca-4db9-aaa9-b30231d98a72/IncomingWebhook/3471670da99146af9ad036464a444f62/e0604b7c-dff2-4657-be4f-d7d4ce626609
+
+delete_notifiers:
+  - name: pizza-delicious-notification
+    uid: pizza-delicious-alerts-grafana
+    org_name: Main Org.

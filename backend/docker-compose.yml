@@ -1,0 +1,13 @@
+version: "3.4"
+
+networks:
+  inner_net:
+    driver: overlay
+
+services:
+  web:
+    image: "pizza-delicious-image"
+    ports:
+      - "8080:80"
+    networks: 
+      - inner_net

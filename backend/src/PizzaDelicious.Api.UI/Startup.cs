@@ -12,103 +12,89 @@ using PizzaDelicious.Catalog.Data;
 using PizzaDelicious.Payments.Data;
 using PizzaDelicious.Register.Data;
 using PizzaDelicious.Sale.Data;
+using Prometheus;
 
-namespace PizzaDelicious.Api.UI
-{
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
+namespace PizzaDelicious.Api.UI {
+    public class Startup {
+        public Startup (IConfiguration configuration) {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<RegisterContext>(
-                  options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                  b => b.MigrationsAssembly("PizzaDelicious.Register.Data"))
-                 );
-
-            services.AddDbContext<CatalogContext>(
-           options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-           b => b.MigrationsAssembly("PizzaDelicious.Catalog.Data"))
-          );
-
-
-            services.AddDbContext<SaleContext>(
-           options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-           b => b.MigrationsAssembly("PizzaDelicious.Sale.Data"))
-          );
-
-            services.AddDbContext<PaymentContext>(
-            options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-            b => b.MigrationsAssembly("PizzaDelicious.Payments.Data"))
+        public void ConfigureServices (IServiceCollection services) {
+            services.AddDbContext<RegisterContext> (
+                options => options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection"),
+                    b => b.MigrationsAssembly ("PizzaDelicious.Register.Data"))
             );
 
+            services.AddDbContext<CatalogContext> (
+                options => options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection"),
+                    b => b.MigrationsAssembly ("PizzaDelicious.Catalog.Data"))
+            );
 
+            services.AddDbContext<SaleContext> (
+                options => options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection"),
+                    b => b.MigrationsAssembly ("PizzaDelicious.Sale.Data"))
+            );
 
-            services.AddAutoMapper(typeof(PizzaDelicious.Register.Application.AutoMapper.DomainToViewModelMappingProfile), typeof(PizzaDelicious.Register.Application.AutoMapper.ViewModelToDomainMappingProfile));
-            services.AddAutoMapper(typeof(PizzaDelicious.Catalog.Application.AutoMapper.DomainToViewModelMappingProfile), typeof(PizzaDelicious.Catalog.Application.AutoMapper.ViewModelToDomainMappingProfile));
+            services.AddDbContext<PaymentContext> (
+                options => options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection"),
+                    b => b.MigrationsAssembly ("PizzaDelicious.Payments.Data"))
+            );
 
-            services.AddControllers()
-                .AddControllersAsServices()
-                .AddNewtonsoftJson(options =>
-                                            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                                        );
+            services.AddAutoMapper (typeof (PizzaDelicious.Register.Application.AutoMapper.DomainToViewModelMappingProfile), typeof (PizzaDelicious.Register.Application.AutoMapper.ViewModelToDomainMappingProfile));
+            services.AddAutoMapper (typeof (PizzaDelicious.Catalog.Application.AutoMapper.DomainToViewModelMappingProfile), typeof (PizzaDelicious.Catalog.Application.AutoMapper.ViewModelToDomainMappingProfile));
 
-            services.AddMvc();
-
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1",
-                    new OpenApiInfo
-                    {
-                        Title = "PizzaDelicious",
-                        Version = Assembly.GetExecutingAssembly().GetName().Version.ToString()
-                    }
+            services.AddControllers ()
+                .AddControllersAsServices ()
+                .AddNewtonsoftJson (options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
-            });
 
-            services.AddCors(options=>
-            {
-                options.AddPolicy("Development",
-                    builder => builder.AllowAnyOrigin()
-                                       .AllowAnyMethod()
-                                       .AllowAnyHeader()
-                                       .AllowCredentials()
-                    );
-            });
+            services.AddSwaggerConfiguration ();
 
-            services.AddMediatR(typeof(Startup));
-            services.RegisterServices();
+            services.AddCors ();
+            //services.AddCors(options=>
+            //{
+            //    options.AddPolicy("Development",
+            //        builder => builder.AllowAnyOrigin()
+            //                           .AllowAnyMethod()
+            //                           .AllowAnyHeader()
+            //                           .AllowCredentials()
+            //        );
+            //});
+
+            services.AddMvc ();
+
+            services.AddMediatR (typeof (Startup));
+            services.RegisterServices ();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+        public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
+            if (env.IsDevelopment ()) {
+                app.UseDeveloperExceptionPage ();
             }
 
-            app.UseHttpsRedirection();
+            // Adicionanr configura��o do Prometheus
+            app.UsePrometheusConfiguration ();
 
-            app.UseRouting();
+            app.UseCors ();
 
-            app.UseAuthorization();
+            //app.UseHttpsRedirection();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
+            app.UseRouting ();
+
+            app.UseAuthorization ();
+
+            app.UseEndpoints (endpoints => {
+                endpoints.MapControllers ();
             });
 
-
-            app.UseSwagger();
-            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "PlaceInfo Services"));
+            app.UseSwaggerConfiguration ();
         }
     }
 }

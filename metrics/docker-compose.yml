@@ -1,0 +1,43 @@
+version: "2"
+services:
+  grafana:
+    build:
+      context: ./Qa/grafana 
+      dockerfile: Dockerfile  
+      args: 
+        version: 1
+    image: grafana-qa
+    restart: always
+    ports:
+      - 3000:3000
+    networks: 
+      - pizza_delicious_network
+  prometheus:
+    build:
+      context: ./Qa/prometheus
+      dockerfile: Dockerfile  
+      args: 
+        version: 1
+    image: prometheus-qa
+    restart: always
+    ports:
+      - 9090:9090
+    networks: 
+      - pizza_delicious_network
+    volumes:
+      - ./Qa/prometheus/data/prometheus:/data
+  web:
+    build:
+      context: ./Qa/grafana 
+      dockerfile: Dockerfile  
+      args: 
+        version: 1
+    image: "pizza-delicious-image"
+    ports:
+      - "5000:5000"
+    networks: 
+      - pizza_delicious_network
+
+networks:
+  pizza_delicious_network:
+    driver: overlay
