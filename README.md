@@ -193,3 +193,15 @@ Implementado por: <b>Douglas Gomes Modesto<b>
 **************************************************************************
 
 # Estrutura Metrics
+
+- metrics
+	- Qa
+		- grafana
+			- config
+			- dashboards
+			- provisioning			
+		- prometheus
+			- data
+			- prometheus.yml
+	- grafana.qa.Dockerfile
+	- prometheus.qa.Dockerfile
