@@ -32,6 +32,8 @@ Implementado por: <b>Douglas Gomes Modesto<b>
 
 # Estrutura Backend (em construção)
 
+![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/backend.png?raw=true "Title")
+
 - Core
 	- Communication
 		- Mediator
@@ -189,10 +191,13 @@ Implementado por: <b>Douglas Gomes Modesto<b>
 
 # Estrutura Frontend (em construção)
 
+![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/frontend.png?raw=true "Title")
 
 **************************************************************************
 
 # Estrutura Metrics
+
+![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/metrics.png?raw=true "Title")
 
 - metrics
 	- Qa
