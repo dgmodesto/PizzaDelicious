@@ -47,14 +47,3 @@ Implementado por: <b>Douglas Gomes Modesto<b>
 
 ![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/metrics.png?raw=true "Title")
 
-- metrics
-	- Qa
-		- grafana
-			- config
-			- dashboards
-			- provisioning			
-		- prometheus
-			- data
-			- prometheus.yml
-	- grafana.qa.Dockerfile
-	- prometheus.qa.Dockerfile
