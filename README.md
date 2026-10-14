@@ -1,49 +1,39 @@
 # Pizza Delicious
 
-Implementado por: <b>Douglas Gomes Modesto<b>
+Implemented by **Douglas Gomes Modesto**
 
-<hr>
+---
 
-## Sobre o projeto
-  - Com a motivação de colocar meus conhecimento a prova, este projeto visa criar um ecommerce com foco em pizzarias. 
+## About
 
-## Objetivo 
-  - é criar um Portal para que os clientes possam realizar seus pedidos e visualizar os produtos da Pizzaria 
+To put my skills to the test, this project builds an e-commerce platform focused on pizzerias.
 
-  - Criar um sistema de backoffice para que a Gerência da Pizzaria possa gerenciar seu estoque e promover possíveis promoções para seus clientes.
+## Goals
 
+- Provide a portal where customers can place orders and browse the pizzeria's products.
+- Provide a back-office system where management can control stock and create promotions for customers.
 
-## Tecnologias Utilizadas
-  - ### Backend
-    - .Net Core 3.1
-  - ### Frontend
-    - Angular 11.0.0
-  - ### metrics
-    - Grafana
-    - Prometheus
-    - Docker
-  
+## Technologies
+
+- **Backend:** .NET Core 3.1
+- **Frontend:** Angular 11.0.0
+- **Metrics:** Grafana, Prometheus, Docker
+
 ## Roadmap
- - O backend a princípio será implementado como um sistema Monolito, porém toda sua estrutura está sendo preparada para se trabalhar com microserviços caso seje necessário.
 
- - O frontend será um monolito e devido ao seu objetivo acredito que uma arquitetura voltada a micro frontends seria muito trabalhoso de lidar.
+- The backend is initially implemented as a **monolith**, but its structure is being prepared to evolve into microservices if needed.
+- The frontend is a monolith; given the project's scope, a micro-frontend architecture would add more complexity than value.
 
-**************************************************************************
+---
 
-# Estrutura Backend (em construção)
+## Backend structure (work in progress)
 
-![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/backend.png?raw=true "Title")
+![Backend structure](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/backend.png?raw=true)
 
+## Frontend structure (work in progress)
 
-**************************************************************************
+![Frontend structure](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/frontend.png?raw=true)
 
-# Estrutura Frontend (em construção)
+## Metrics structure
 
-![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/frontend.png?raw=true "Title")
-
-**************************************************************************
-
-# Estrutura Metrics
-
-![Alt text](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/metrics.png?raw=true "Title")
-
+![Metrics structure](https://github.com/dgmodesto/PizzaDelicious/blob/main/images-readme/metrics.png?raw=true)
